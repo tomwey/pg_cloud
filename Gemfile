@@ -102,6 +102,8 @@ gem 'rack-utf8_sanitizer'
 # 富文本编辑器
 gem 'redactor-rails'
 
+gem 'simple_form'
+
 # API doc
 gem 'grape-swagger'
 gem 'grape-swagger-rails'

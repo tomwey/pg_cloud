@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+  # 商家会员登录
+  devise_for :members, path: "account", controllers: {
+    registrations: :account,
+    sessions: :sessions,
+  }
+  
   mount RedactorRails::Engine => '/redactor_rails'
   
   # 网页文档
