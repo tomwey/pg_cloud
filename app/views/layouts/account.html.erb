@@ -12,6 +12,8 @@
   
   <link rel="shortcut icon" href="<%= asset_path("favicon.ico") %>" />
   
+  <%= yield :styles %>
+  
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
   

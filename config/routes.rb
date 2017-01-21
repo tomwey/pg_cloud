@@ -5,6 +5,16 @@ Rails.application.routes.draw do
     registrations: :account,
     sessions: :sessions,
   }
+  get '/account/more_profile' => 'members#more_profile', as: :more_profile
+  get '/account/studio' => 'members#studio', as: :new_studio
+  get '/account/company' => 'members#company', as: :new_company
+  
+  resources :studios, only: [:create]
+  resources :companies, only: [:create]
+  
+  namespace :portal do
+    root 'home#index'
+  end
   
   mount RedactorRails::Engine => '/redactor_rails'
   

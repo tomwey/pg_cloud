@@ -21,6 +21,8 @@
       inactive: '您还没有激活帐户。'
       admin:
         not_found_in_database: '没有该用户，请您重新注册。'
+      member:
+        not_found_in_database: '没有该用户，请您重新注册。'
     sessions:
       signed_in: '登录成功。'
       signed_out: '退出成功。'

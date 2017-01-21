@@ -6,7 +6,7 @@ class AccountController < Devise::RegistrationsController
   def layout_by_action
     if %w(edit update).include?(action_name)
       "user_layout"
-    elsif %w(new create).include?(action_name)
+    elsif %w(new create more_profile).include?(action_name)
       "account"
     end
   end
@@ -17,24 +17,25 @@ class AccountController < Devise::RegistrationsController
   end
   
   def create
-    code = params[:user][:code]
+    code = params[:member][:code]
     
     # 删掉不需要的参数
     sign_up_params.delete(:code)
-    sign_up_params.delete(:code_type)
     sign_up_params.delete(:email)
     
     build_resource(sign_up_params)
     
     valid = resource.valid?
-    ac = AuthCode.where('mobile = ? and code = ? and verified = ?', resource.mobile, code, true).first
-    if ac.blank?
+    # ac = AuthCode.where('mobile = ? and code = ? and verified = ?', resource.mobile, code, true).first
+    auth_code = AuthCode.check_code_for(resource.mobile, code)
+    if auth_code.blank?
       resource.errors.add(:code, "不正确的验证码")
       valid = false
     end
     
     if valid && resource.save
-      ac.update_attribute(:verified, false)
+      auth_code.active
+      
       if resource.active_for_authentication?        
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_in(resource_name, resource)
@@ -74,7 +75,12 @@ class AccountController < Devise::RegistrationsController
   protected
 
     def after_sign_up_path_for(resource)
-      home_user_path
+      if resource.account_type.blank?
+        # 还未完善资料
+        more_profile_path
+      else
+        portal_root_path
+      end
     end
     
     def after_update_path_for(resource)

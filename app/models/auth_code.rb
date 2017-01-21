@@ -11,4 +11,8 @@ class AuthCode < ActiveRecord::Base
     return nil if mobile.blank? or code.blank?
     where('mobile = ? and code = ? and activated_at is null', mobile, code).first
   end
+  
+  def active
+    self.update_attribute(:activated_at, Time.zone.now)
+  end
 end
