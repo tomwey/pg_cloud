@@ -1,9 +1,6 @@
-class Portal::HomeController < ApplicationController
-  before_filter :require_member
-  before_filter :check_member
-  before_filter :check_more_profile
+class Portal::HomeController < Portal::ApplicationController
   
   def index
-    
+    @page_header = "控制面板"
   end
 end
