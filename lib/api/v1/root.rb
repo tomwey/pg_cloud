@@ -22,13 +22,13 @@ module API
       mount API::V1::AuthCodesAPI
       mount API::V1::UsersAPI
       mount API::V1::AppVersionsAPI
-      mount API::V1::ChannelsAPI
-      mount API::V1::ChannelNodesAPI
-      mount API::V1::LiveAPI
-      mount API::V1::AppointmentsAPI
-      mount API::V1::FavoritesAPI
-      mount API::V1::BilibilisAPI
-      mount API::V1::PlayStatsAPI
+      # mount API::V1::ChannelsAPI
+      # mount API::V1::ChannelNodesAPI
+      # mount API::V1::LiveAPI
+      # mount API::V1::AppointmentsAPI
+      # mount API::V1::FavoritesAPI
+      # mount API::V1::BilibilisAPI
+      # mount API::V1::PlayStatsAPI
       
       # 
       # 配合trix文本编辑器

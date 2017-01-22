@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :studios, only: [:create]
   resources :companies, only: [:create]
   
+  root 'home#index'
+  
   namespace :portal do
     root 'home#index'
   end
