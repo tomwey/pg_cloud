@@ -35,7 +35,7 @@
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Settings</a></li>
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Help</a></li>
+          <li><%= link_to '退出登录', destroy_member_session_path, method: :delete, data: { confirm: '你确定吗？' } %></li>
         </ul>
         <form class="navbar-form navbar-right">
           <input type="text" class="form-control" placeholder="Search...">

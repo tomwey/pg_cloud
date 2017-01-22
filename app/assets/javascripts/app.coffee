@@ -43,7 +43,7 @@ window.App =
     ), 1000
     
     $.ajax
-      url:  "http://shuiguoshe.com/api/v1/auth_codes"
+      url:  "http://yy.afterwind.cn/api/v1/auth_codes"
       type: "POST"
       data: { mobile: mobile, type: parseInt($("#user_code_type").val()) }
       success: (re) -> 
