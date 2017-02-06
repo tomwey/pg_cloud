@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   
   # 商家会员登录
-  devise_for :members, path: "account", controllers: {
-    registrations: :account,
-    sessions: :sessions,
-  }
   get '/account/more_profile' => 'members#more_profile', as: :more_profile
   get '/account/studio' => 'members#studio', as: :new_studio
   get '/account/company' => 'members#company', as: :new_company
@@ -25,9 +21,13 @@ Rails.application.routes.draw do
   
   # 后台系统登录
   devise_for :admins, ActiveAdmin::Devise.config
-  
   # 后台系统路由
   ActiveAdmin.routes(self)
+  
+  devise_for :members, path: "account", controllers: {
+    registrations: :account,
+    sessions: :sessions,
+  }
   
   # 队列后台管理
   require 'sidekiq/web'

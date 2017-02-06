@@ -41,24 +41,23 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource)
-    case resource.class
-    when Admin
+    if resource.class == Admin
       cpanel_root_path
-    when Member
+    else
       if resource.account_type.blank?
         # 还未完善资料
-        more_profile_path
+        return more_profile_path
       else
-        portal_root_path
+        return portal_root_path
       end
     end
   end
   
   def after_sign_out_path_for(resource)
-    case resource.class
-    when Admin
+    # puts resource.to_s
+    if resource.to_s == 'admin'
       new_admin_session_path
-    when Member
+    else
       new_member_session_path
     end
   end
