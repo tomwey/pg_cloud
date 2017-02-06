@@ -53,8 +53,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def after_sign_out_path_for(resource)
+  def after_sign_out_path_for(member_user)
     new_member_session_path
+  end
+  
+  def after_sign_out_path_for(admin_user)
+    new_admin_session_path
   end
   
 end
