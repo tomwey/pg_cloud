@@ -88,7 +88,7 @@ gem 'cancancan'#, '~> 1.10'
 # YAML 配置信息
 gem 'settingslogic'
 
-gem 'rails_admin', '~> 1.0'
+# gem 'rails_admin', '~> 1.0'
 
 # 消息推送
 gem 'jpush'
