@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   root 'home#index'
   
+  # 商家后台
   namespace :portal do
     root 'home#index'
   end
