@@ -1,0 +1,30 @@
+<% content_for :styles do %>
+<%= stylesheet_link_tag  'products' %>
+<% end %>
+
+<% if @products.empty? %>
+<div class="no-results"><无数据显示></div>
+<% else %>
+<div class="content-list">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>缩略图</th>
+        <th>产品ID</th>
+        <th>产品名</th>
+        <th>原价</th>
+        <th>折扣价</th>
+        <th>照片数量</th>
+        <th>库存</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @products %>
+    </tbody>
+  </table>
+</div>
+
+<div style="text-align: center;"><%= will_paginate @products, renderer: BootstrapPagination::Rails %></div>
+
+<% end %>

@@ -44,8 +44,8 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">概览</a></li>
-            <li><a href="#">产品系统</a></li>
+            <li class="<%= controller_name == 'home' ? 'active': '' %>"><a href="#">概览</a></li>
+            <li class="<%= controller_name == 'products' ? 'active': '' %>"><a href="<%= portal_products_path %>">产品系统</a></li>
             <li><a href="#">订单系统</a></li>
             <li><a href="#">选片系统</a></li>
             <li><a href="#">客户系统</a></li>
@@ -54,14 +54,18 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">个人中心</a></li>
-            <li><a href="">权限</a></li>
+            <li><a href="">权限系统</a></li>
             <li><a href="">消息</a></li>
             <li><a href="">设置</a></li>
           </ul>
           
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header"><%= @page_header %></h1>
+          <h1 class="page-header"><%= @page_header %>
+            <% if @action %>
+              <a class="btn btn-primary pull-right" href="<%= @action %>" role="button">新建</a>
+            <% end %>
+          </h1>
           
           <%= yield %>
         </div>
