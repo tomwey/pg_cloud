@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :studios, only: [:create]
   resources :companies, only: [:create]
   
-  root 'home#index'
+  # root 'home#index'
   
   # 商家后台
-  namespace :portal do
+  namespace :portal, path: '' do
     root 'home#index'
     resources :products
   end
