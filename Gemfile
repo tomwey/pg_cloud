@@ -27,6 +27,8 @@ gem 'spring',        group: :development
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'gentelella-rails'
+
 # Postgis 2.0+
 # gem 'rgeo'
 
@@ -72,7 +74,7 @@ gem 'posix-spawn'
 gem 'carrierwave-qiniu', '0.2.3'
 
 # Bootstrap UI
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # 分页
 gem 'will_paginate'

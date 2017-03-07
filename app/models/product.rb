@@ -1,8 +1,8 @@
 class Product < ActiveRecord::Base
   belongs_to :member, foreign_key: 'owner_id'
   
-  validates :name, :body, :image, :price, :discount_price, :photos_quantity, :owner_id, presence: true
-  validates_numericality_of :price, :discount_price, :photos_quantity, :stock, only_integer: true, greater_than_or_equal_to: 0
+  validates :name, :body, :image, :market_price, :discount_price, :photos_quantity, :owner_id, presence: true
+  validates_numericality_of :market_price, :discount_price, :photos_quantity, :stock, only_integer: true, greater_than_or_equal_to: 0
   mount_uploader :image, ImageUploader
   
   scope :sorted, -> { order('sort asc') }

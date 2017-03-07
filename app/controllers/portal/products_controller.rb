@@ -52,6 +52,6 @@ class Portal::ProductsController < Portal::ApplicationController
   
   private
   def product_products
-    params.require(:product).permit(:name, :intro, :body, :image, :stock, :sort, :price, :discount_price, :photos_quantity)
+    params.require(:product).permit(:name, :intro, :body, :image, :stock, :sort, :market_price, :discount_price, :photos_quantity)
   end
 end

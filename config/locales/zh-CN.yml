@@ -82,7 +82,7 @@
         image: '图片'
         intro: '简介'
         body: '详情'
-        price: '原价'
+        market_price: '原价'
         discount_price: '折扣价'
         stock: '库存'
         view_count: '浏览数'
