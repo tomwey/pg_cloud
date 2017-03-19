@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   namespace :portal, path: '' do
     root 'home#index'
     resources :products
+    resources :members, path: 'staffs'
+    resources :roles
   end
   
   mount RedactorRails::Engine => '/redactor_rails'

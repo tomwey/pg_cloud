@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.member_id = current_member.id
     if @company.save
-      current_member.update_attribute(:account_type, 2)
+      current_member.update_attribute(:account_type, Member::ACCOUNT_TYPE_COMPANY)
       flash[:success] = "创建成功"
       redirect_to portal_root_path
     else

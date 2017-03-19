@@ -92,6 +92,8 @@ gem 'settingslogic'
 
 # gem 'rails_admin', '~> 1.0'
 
+gem 'pundit'
+
 # 消息推送
 gem 'jpush'
 

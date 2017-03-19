@@ -10,7 +10,7 @@ class StudiosController < ApplicationController
     @studio.member_id = current_member.id
     
     if @studio.save
-      current_member.update_attribute(:account_type, 1)
+      current_member.update_attribute(:account_type, Member::ACCOUNT_TYPE_STUDIO)
       flash[:success] = "创建成功"
       redirect_to portal_root_path
     else

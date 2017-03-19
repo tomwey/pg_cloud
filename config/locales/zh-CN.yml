@@ -10,6 +10,10 @@
     canceled: '已取消'
     completed: '已完成'
     processing: '处理中'
+    read: '查看'
+    create: '创建'
+    update: '修改'
+    destroy: '删除'
   activerecord:
     models:
       user: "用户"
@@ -25,6 +29,8 @@
       message: '消息'
       common_config: '公共配置'
       product: '产品'
+      role: '角色'
+      member: '云影账号'
     attributes:
       user:
         mobile: "手机"
@@ -36,6 +42,11 @@
         verified: "是否启用"
         private_token: "Token"
         created_at: "注册时间"
+      member:
+        mobile: "手机号"
+        password: '密码'
+        password_confirmation: '确认密码'
+        role_ids: '角色'
       app_version:
         os: '系统'
         version: '版本号'
@@ -90,6 +101,9 @@
         photos_quantity: '照片数'
         owner_id: '所有者'
         sort: '显示顺序'
+      role:
+        name: '角色名'
+        owner_id: '所有者'
       app_type:
         name: '类型名称'
         parent_id: '父级分类'
