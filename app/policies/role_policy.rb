@@ -6,4 +6,12 @@ class RolePolicy < ApplicationPolicy
   end
   
   permit [:read, :create, :update, :destroy]
+  
+  def update?
+    @user.company? and @user == @record.member
+  end
+  
+  def destroy?
+    @user.company? and @user == @record.member
+  end
 end
