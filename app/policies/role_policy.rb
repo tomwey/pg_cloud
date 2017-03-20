@@ -1,7 +1,7 @@
 class RolePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(owner_id: @user.id)
     end
   end
   

@@ -22,7 +22,11 @@
 <div class="clearfix"></div>
 
 <% if @products.empty? %>
-<div class="no-results"><无数据显示></div>
+<div class="x_panel">
+  <div class="x_content">
+    <div class="no-results"><无数据显示><br /><%= link_to '新建产品', @action, class: 'btn btn-primary' %><</div>
+  </div>
+</div>
 <% else %>            
 <div class="x_panel">
   <div class="x_content">
