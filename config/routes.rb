@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     root 'home#index'
     resources :products
     resources :members, path: 'staffs'
-    resources :roles
+    resources :roles, except: :show
   end
   
   mount RedactorRails::Engine => '/redactor_rails'

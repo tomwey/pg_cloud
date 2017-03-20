@@ -7,7 +7,7 @@
   <td><%= product.photos_quantity %></td>
   <td><%= product.stock %></td>
   <td>
-    <%= link_to '编辑', edit_portal_product_path(product.pid), class: 'btn btn-sm btn-default' %>
-    <%= link_to '删除', portal_product_path(product.pid), method: :delete,  data: { confirm: '您确定吗？' },class: 'btn btn-sm btn-danger' %>
+    <%= link_to '编辑', edit_portal_product_path(product.pid), class: 'btn btn-sm btn-default' if policy(Product).update? %>
+    <%= link_to '删除', portal_product_path(product.pid), method: :delete,  data: { confirm: '您确定吗？' },class: 'btn btn-sm btn-danger' if policy(Product).destroy? %>
   </td>
 </tr>

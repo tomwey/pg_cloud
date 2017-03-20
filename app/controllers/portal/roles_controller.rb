@@ -7,12 +7,6 @@ class Portal::RolesController < Portal::ApplicationController
     @roles = policy_scope(Role).paginate page: params[:page], per_page: 30
   end
   
-  def show
-    @page_header = "产品详情"
-    @role = Role.find(params[:id])
-    authorize @role
-  end
-  
   def new
     @page_header = "新建产品"
     @role = Role.new

@@ -18,7 +18,7 @@ class Member < ActiveRecord::Base
   
   has_and_belongs_to_many :roles, join_table: :roles_staffs, class_name: 'Role', foreign_key: 'staff_id'
   # has_and_belongs_to_many :roles, join_table: :roles_staffs, foreign_key: 'staff_id'
-  # has_many :permissions, through: :roles
+  has_many :permissions, through: :roles
   
   attr_accessor :code
   
@@ -54,6 +54,5 @@ class Member < ActiveRecord::Base
   def company?
     admin? and account_type == Member::ACCOUNT_TYPE_COMPANY
   end
-   
          
 end
