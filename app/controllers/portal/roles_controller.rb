@@ -35,13 +35,28 @@ class Portal::RolesController < Portal::ApplicationController
   end
   
   def edit
-    @page_header = "更新产品"
-    @role = Role.find(params[:id])
+    @page_header = "更新角色"
+    
+    @role = Role.find_by(id: params[:id], owner_id: current_member.id)
+    if @role.blank?
+      flash[:alert] = '记录不存在'
+      redirect_to portal_roles_path
+      return
+    end
+    
+    # @role = Role.find(params[:id])
     authorize @role
   end
   
   def update
-    @role = Role.find(params[:id])
+    # @role = Role.find(params[:id])
+    @role = Role.find_by(id: params[:id], owner_id: current_member.id)
+    if @role.blank?
+      flash[:alert] = '记录不存在'
+      redirect_to portal_roles_path
+      return
+    end
+    
     authorize @role
     if @role.update(role_params)
       flash[:success] = '更新成功'
@@ -52,7 +67,14 @@ class Portal::RolesController < Portal::ApplicationController
   end
   
   def destroy
-    @role = Role.find(params[:id])
+    # @role = Role.find(params[:id])
+    @role = Role.find_by(id: params[:id], owner_id: current_member.id)
+    if @role.blank?
+      flash[:alert] = '记录不存在'
+      redirect_to portal_roles_path
+      return
+    end
+    
     authorize @role
     @role.destroy
     redirect_to portal_roles_url

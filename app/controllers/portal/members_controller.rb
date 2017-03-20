@@ -33,13 +33,26 @@ class Portal::MembersController < Portal::ApplicationController
   
   def edit
     @page_header = "更新产品"
-    @member = Member.find(params[:id])
-    authorize @member
+    begin
+      @member = current_member.staffs.find(params[:id])
+      authorize @member
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = '记录不存在'
+      redirect_to portal_members_path
+    end
   end
   
   def update
-    @member = Member.find(params[:id])
-    authorize @member
+    # @member = current_member.staffs.find(params[:id])
+    # authorize @member
+    begin
+      @member = current_member.staffs.find(params[:id])
+      authorize @member
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = '记录不存在'
+      redirect_to portal_members_path
+    end
+    
     if @member.update(member_params)
       flash[:success] = '更新成功'
       redirect_to portal_members_url
@@ -49,8 +62,16 @@ class Portal::MembersController < Portal::ApplicationController
   end
   
   def destroy
-    @member = Member.find(params[:id])
-    authorize @member
+    # @member = current_member.staffs.find(params[:id])
+    # authorize @member
+    begin
+      @member = current_member.staffs.find(params[:id])
+      authorize @member
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = '记录不存在'
+      redirect_to portal_members_path
+    end
+    
     unless @member.destroy
       flash[:alert] = @member.errors.full_messages.join(',')
     end
