@@ -16,7 +16,7 @@
             <%= f.input :mobile %>
             <%= f.input :password, hint: '密码至少为6位' %>
             <%= f.input :password_confirmation, hint: '密码至少为6位' %>
-            <%= f.input :role_ids, as: :check_boxes, collection: Role.where(owner_id: current_member.id).map { |role| [role.name, role.id] } %>
+            <%= f.input :role_ids, as: :check_boxes, include_hidden: false, collection: Role.where(owner_id: current_member.id).map { |role| [role.name, role.id] } %>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
                 <%= link_to '取消', :back, class: "btn btn-primary" %>
