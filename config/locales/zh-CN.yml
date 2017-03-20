@@ -30,7 +30,7 @@
       common_config: '公共配置'
       product: '产品'
       role: '角色'
-      member: '云影账号'
+      member: '账号'
     attributes:
       user:
         mobile: "手机"

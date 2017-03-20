@@ -17,8 +17,8 @@
   <%= render 'layouts/shim' %>
   
 </head>
-<body class="nav-md">    
-  <%= notice_message %>
+<body class="nav-md">
+  
   <div class="container body">
     <div class="main_container">
       
@@ -270,6 +270,10 @@
       
       <!-- page content -->
       <div class="right_col" role="main">
+        <div style="padding-top: 20px">
+          <%= notice_message %>
+        </div>
+        
         <%= yield %>
       </div>
       <!-- page content -->

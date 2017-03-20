@@ -14,7 +14,7 @@
             boolean: :horizontal_boolean
           }) do |f| %>
             <%= f.input :name %>
-            <%= f.input :permissions, as: :check_boxes, label: '权限', required: true, include_hidden: false, collection: Role.allowed_permissions %>
+            <%= f.input :permissions, as: :check_boxes, label: '权限', collection: Role.allowed_permissions, checked: @role.permissions.map { |permission| "#{permission.action}##{permission.resource}" }, required: true, include_hidden: false %>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
                 <%= link_to '取消', :back, class: "btn btn-primary" %>
