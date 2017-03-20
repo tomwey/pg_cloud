@@ -4,7 +4,7 @@ class Portal::MembersController < Portal::ApplicationController
     authorize Member
     @page_header = "账户列表"
     @action = new_portal_member_path
-    @members = policy_scope(Member)
+    @members = policy_scope(Member).includes(:roles).paginate page: params[:page], per_page: 30
   end
   
   def show

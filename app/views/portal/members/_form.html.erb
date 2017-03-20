@@ -14,8 +14,10 @@
             boolean: :horizontal_boolean
           }) do |f| %>
             <%= f.input :mobile %>
+            <% if f.object.new_record? %>
             <%= f.input :password, hint: '密码至少为6位' %>
             <%= f.input :password_confirmation, hint: '密码至少为6位' %>
+            <% end %>
             <%= f.input :role_ids, as: :check_boxes, include_hidden: false, collection: Role.where(owner_id: current_member.id).map { |role| [role.name, role.id] } %>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">

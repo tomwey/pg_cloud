@@ -1,7 +1,7 @@
 class MemberPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(parent_id: @user.id).order('created_at desc')
     end
   end
   
