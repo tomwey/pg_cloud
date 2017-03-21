@@ -31,6 +31,7 @@
       product: '产品'
       role: '角色'
       member: '账号'
+      customer: '客户'
     attributes:
       user:
         mobile: "手机"
@@ -47,6 +48,15 @@
         password: '密码'
         password_confirmation: '确认密码'
         role_ids: '角色'
+      customer:
+        avatar: '头像'
+        nickname: '昵称'
+        realname: '姓名'
+        mobile: '手机'
+        address: '住址'
+        owner_id: '所有者'
+        o_id: '客户ID'
+        wx_id: '微信ID'
       app_version:
         os: '系统'
         version: '版本号'

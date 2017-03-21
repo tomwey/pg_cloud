@@ -46,6 +46,10 @@ class Member < ActiveRecord::Base
     false
   end
   
+  def account
+    self.parent_id.blank? ? self : self.parent
+  end
+  
   # 是否是管理员
   def admin?
     ( (account_type == Member::ACCOUNT_TYPE_STUDIO or account_type == Member::ACCOUNT_TYPE_COMPANY) and parent_id.blank? )

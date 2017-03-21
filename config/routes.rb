@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :products
     resources :members, path: 'staffs'
     resources :roles, except: :show
+    resources :customers
   end
   
   mount RedactorRails::Engine => '/redactor_rails'
